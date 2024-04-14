@@ -24,3 +24,13 @@
     - If user has not entered this value and clicks on submit, show a error icon hovering over which should show that input field is mandatory
 - Error icons should not be visible in the form by default.
 - Clicking on submit should show a modal which would show the final values based on above calculations.
+
+# Output Screenshots
+
+<img width="326" alt="TaxC1" src="https://github.com/umangsharma5411/Umang/assets/166703900/ce3967e2-d81f-4707-aee4-7ff234a727d0">
+
+<img width="372" alt="TaxC2" src="https://github.com/umangsharma5411/Umang/assets/166703900/a8029243-1ae0-414d-8e70-87985137d1c5">
+
+<img width="469" alt="TaxC3" src="https://github.com/umangsharma5411/Umang/assets/166703900/5011c128-c91e-4a71-b6b4-355c48567bd4">
+
+<img width="343" alt="TaxC4" src="https://github.com/umangsharma5411/Umang/assets/166703900/c70f1c20-95d8-4087-be1b-e310c6c7f7b8">
