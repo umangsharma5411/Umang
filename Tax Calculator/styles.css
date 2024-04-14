@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(185, 129, 238);
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+
+}
+
+.container {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    width: 400px;
+    max-width: 100%;
+
+}
+
+.header {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 20px 40px;
+}
+
+.header h2 {
+        margin: 0;
+}
+
+.form{
+    padding: 30px 40px;
+}
+
+.form-control {
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.form-control label {
+     display: inline-block;
+     margin-bottom: 5px;
+}
+
+.form-control input {
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 10px;
+    width: 100%;
+}
+
+.form-control.success input {
+    border-color: rgb(12, 197, 12);
+
+}
+
+.form-control.error input {
+    border-color: red;
+    
+}
+
+.form-control i.fa-circle-question {
+    visibility: visible;
+    position: relative;
+    top:0px ;
+    right: inherit;
+    
+
+}
+
+.form-control i {
+     position: absolute;
+     top: 40px;
+     right: 10px;
+     visibility: hidden;
+}
+
+.form-control.success i.fa-circle-check{
+    visibility: visible;
+    color: rgb(12, 197, 12) ;
+}
+
+.form-control.error i.fa-circle-exclamation{
+    visibility: visible;
+    color: red ;
+}
+
+.form-control small {
+    visibility: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.form-control.error small{
+    visibility: visible;
+    color: red;
+}
+
+.form-control select {
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 10px;
+    width: 100%;
+}
+
+.form button {
+    background-color: rgb(181, 33, 181);
+    border: 2px solid rgb(181, 33, 181);
+    border-radius: 4px;
+    color: #fff;
+    display: block;
+    padding: 10px;
+    font-size: 16px;
+    font-family: inherit;
+    width: 100%;
+}
+
+.popup {
+     width: 500px;
+     background-color: aquamarine;
+     border-radius: 6px;
+     position: absolute;
+     top: 0%;
+     left: 50%;
+     transform: translate(-50%,-50%) scale(0.1);
+     text-align: center;
+     padding: 0 30px 30px;
+     color: #333;
+     visibility: hidden;
+     transition: transform 0.4s, top 0.4s;
+}
+
+.popup button {
+    width: 50%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background-color: rgb(180, 73, 180);
+    font-size: 18px;
+    color: #f0f0f0;
+    }
+
+.open-popup {
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(1);
+}
+
+#taxResult {
+    font-size: 14px;
+    font-family: inherit;
+}
+

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Tax Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Tax Calculator</h2>
+        </div>
+    
+    <form class="form" id="form">
+        <div class="form-control">
+        <label for="income">Enter gross annual income</label>
+        <i class="fa-regular fa-circle-question" onclick="alert('Gross annual income is your total salary in a year before any deductions.')"></i>
+        <br>
+        <input type="number" id="income" name="income">
+        <i class="fa-solid fa-circle-check"></i>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <small>error</small>
+        </div>
+        
+        <div class="form-control">
+            <label for="income">Enter extra income</label>
+            <i class="fa-regular fa-circle-question" onclick="alert('Extra income is the income which you earned in addition to regular pay.')"></i>
+            <br>
+            <input type="number" id="extraincome" name="extraincome">
+            <i class="fa-solid fa-circle-check"></i>
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <small>error</small>
+        </div>
+
+        <div class="form-control ">
+            <label for="deductions">Enter total applicable deductions</label>
+            <i class="fa-regular fa-circle-question" onclick="alert('Deductions refers to certain expenses or allowances that can be subtracted from the gross income to arrive at the taxable income.')"></i>
+            <br>
+            <input type="number" id="deductions" name="deductions">
+            <i class="fa-solid fa-circle-check"></i>
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <small>error</small>
+            </div>
+
+        <div class="form-control">
+        <label for="age">Enter age group</label>
+        <br>
+        <select id="age" name="age">
+            <option value="<40">&lt; 40</option>
+            <option value="≥40 &amp; <60">&ge; 40 &lt; 60</option>
+            <option value="≥60">&ge; 60</option>
+        </select>
+        <i class="fa-solid fa-circle-check"></i>
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <small>error</small>
+        </div>
+        <br>
+        <button type="submit" onclick="openPopup(); calculateTax();">Submit</button>
+        
+       </div>
+    </form>
+    
+</div>
+<div id="myModal">
+<div class="popup" id="popup">
+    <h2>Your overall income will be</h2>
+    <p id="taxResult" ></p>
+    <h4>after tax deductions</h4>
+    <button type="button" onclick="closePopup()">Close</button>
+</div>
+</div>
+
+
+
+   <script>
+        const form = document.getElementById('form');
+        const income = document.getElementById('income');
+        const extraincome= document.getElementById('extraincome');
+        const age = document.getElementById('age');
+        const deductions = document.getElementById('deductions');
+
+
+form.addEventListener("click",(e)=>{
+    e.preventDefault();
+    checkInputs();
+});
+
+function checkInputs(){
+     const incomeValue =income.value.trim();
+   const extraincomeValue= extraincome.value.trim();
+   const ageValue= age.value.trim();
+    const deductionsValue=deductions.value.trim();
+
+    if(incomeValue === ''){
+        setErrorFor(income,'Please enter numbers only');
+
+    }else {
+        setSuccessFor(income);
+         }
+
+     if(extraincomeValue === ''){
+        setErrorFor(extraincome,'Please enter numbers only');
+
+    }else {
+        setSuccessFor(extraincome);
+         }
+
+     if(ageValue === ''){
+        setErrorFor(ageValue,'Please select your age group');
+
+    }else {
+        setSuccessFor(ageValue);
+         }
+
+     if(deductionsValue === ''){
+        setErrorFor(deductions,'Please enter numbers only');
+
+    }else {
+        setSuccessFor(deductions);
+         }
+
+    
+}
+
+function setErrorFor(input,message){
+    const formControl=input.parentElement;
+    const small=formControl.querySelector('small');
+    small.innerText=message;
+    formControl.className='form-control error';
+
+}
+function setSuccessFor(input){
+    const formControl=input.parentElement;
+    formControl.className='form-control success';
+
+}
+
+function calculateTax() {
+    var age = document.getElementById("age").value;
+    var income = parseFloat(document.getElementById("income").value);
+    var extraincome = parseFloat(document.getElementById("extraincome").value);
+    var deductions = parseFloat(document.getElementById("deductions").value);
+    var Income =income + extraincome-deductions;
+    var tax = 0;
+
+    
+
+    if (age === "<40") {
+        tax = Income <= 800000 ? 0 : 0.3 * (Income - 800000);
+    } else if (age === "≥40 & <60") {
+        tax = Income <= 800000 ? 0 : 0.4 * (Income - 800000);
+    } else if (age === "≥60") {
+        tax = Income <= 800000 ? 0 : 0.1 * (Income - 800000);
+    }
+
+    var final = Income-tax;
+
+    var modal = document.getElementById("myModal");
+    var resultText = document.getElementById("taxResult");
+    resultText.innerHTML = "Rs. " + final.toFixed(2) + " Lakhs";
+    modal.style.display = "block";
+}
+
+
+
+let popup=document.getElementById("popup");
+function openPopup(){
+    popup.classList.add("open-popup");
+}
+function closePopup(){
+    popup.classList.remove("open-popup");
+}
+
+
+    </script>
+
+
+</body>
+</html>
